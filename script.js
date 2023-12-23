@@ -12,12 +12,31 @@ function getComputerChoice(){
 function playRound(compSelection, playerSelection){
     // you choose rock
     if(compSelection == playerSelection){
-        return console.log("TIE")
-    }else if(playerSelection == 0){
-        return compSelection == 1? console.log("YOU WIN") : console.log("YOU LOSE");
-    }else if(playerSelection == 1){
-        return compSelection == 2 ? console.log("YOU WIN") : console.log("YOU LOSE")
+        return -1
+    }else if(playerSelection == "rock"){
+        return compSelection == "scissors"? 1 : 0;
+    }else if(playerSelection == "scissors"){
+        return compSelection == "paper" ? 1 :0
     }else{
-        return compSelection == 0 ? console.log("YOU WIN") : console.log("YOU LOSE")
+        return compSelection == "rock" ? 1 : 0
+    }
+}
+
+function playGame(){
+    console.log("Please make a choice: Scissors Paper or Rock : ");
+    let choice = prompt().toLowerCase();
+    let win =0;
+    let lose = 0;
+    let tie = 0;
+    for(let i =0; i < 5; i++){
+        if(playRound(getComputerChoice(), choice) == -1){
+            tie++;
+        }else{
+            playRound(getComputerChoice(), choice) == 0 ? lose++ : win++
+        }
+        console.log(`win:${win}\nlose:${lose}\ntie:${tie}`)
+        if(i == 4) continue;
+        console.log("Enter another choice: ")
+        choice = prompt().toLowerCase();
     }
 }
