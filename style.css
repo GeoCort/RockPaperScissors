@@ -1,0 +1,17 @@
+.game-c{
+    display:flex;
+    gap:2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    padding:1rem;
+    border-radius: 5px;
+    background-color:rgb(171, 174, 198);
+    border:none;
+}
+
+button:hover{
+    background-color:wheat;
+}
